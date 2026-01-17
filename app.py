@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from config import Config
+import os
 from models import db, User, Car, Ticket
 from auth import admin_required
 from logger import setup_logger
@@ -7,6 +8,8 @@ from upload import save_car_image
 from admin_create import create_admin
 
 
+
+port = int(os.environment.get("PORT", 5000))
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -98,4 +101,4 @@ if __name__ == "__main__":
     with app.app_context():
         db.create_all()
         create_admin(app)
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=port, debug=True)
