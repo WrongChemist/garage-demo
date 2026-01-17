@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Users</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Admin</th>
+    </tr>
+
+    {% for user in users %}
+    <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ "Yes" if user.is_admin else "No" }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

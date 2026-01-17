@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Create Ticket for Car #{{ car_id }}</h1>
+
+<form method="POST">
+    <label>Description:</label>
+    <textarea name="description" required></textarea>
+
+    <button type="submit">Create Ticket</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Garage Manager</h1>
+
+<p>Welcome to the system.</p>
+
+<h2>Cars</h2>
+<ul>
+    {% if Car %}
+        {% for car in Car %}
+            <li>
+                {{ car.model }} ({{ car.license_plate }})
+                <a href="{{ url_for('create_ticket', car_id=car.id) }}">Add Ticket</a>
+            </li>
+        {% endfor %}
+    {% endif %}
+</ul>
+
+{% endblock %}

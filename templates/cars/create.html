@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Add Car</h1>
+
+<form method="POST" enctype="multipart/form-data">
+    <label>Model:</label>
+    <input type="text" name="model" required>
+
+    <label>License Plate:</label>
+    <input type="text" name="license_plate" required>
+
+    <label>Owner:</label>
+    <select name="user_id">
+        {% for user in users %}
+            <option value="{{ user.id }}">{{ user.username }}</option>
+        {% endfor %}
+    </select>
+
+    <label>Image (optional):</label>
+    <input type="file" name="image">
+
+    <button type="submit">Create</button>
+</form>
+
+{% endblock %}
